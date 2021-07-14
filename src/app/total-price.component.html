@@ -3,11 +3,21 @@
 
 <div>Total price:</div>
 <ul class="totals-list">
-  <li *ngIf="!isError">{{isRounded ? (totals.rubles | number:'1.2-2') : (totals.rubles | number:'1.6-6')}} rubles </li>
-  <li *ngIf="!isError">{{isRounded ? (totals.euros | number:'1.2-2') : (totals.euros | number:'1.6-6')}} euros </li>
-  <li>{{isRounded ? (totals.dollars | number:'1.2-2') : (totals.dollars | number:'1.6-6')}} US dollars </li>
-  <li *ngIf="!isError">{{isRounded ? (totals.pounds | number:'1.2-2') : (totals.pounds | number:'1.6-6')}} pounds </li>
-  <li *ngIf="!isError">{{isRounded ? (totals.yens | number:'1.2-2') : (totals.yens | number:'1.6-6')}} yens </li>
+  <li *ngIf="!isError && totals.rubles">
+    {{isRounded ? (totals.rubles | number:'1.2-2') : (totals.rubles | number:'1.6-6')}} rubles 
+  </li>
+  <li *ngIf="!isError && totals.euros">
+    {{isRounded ? (totals.euros | number:'1.2-2') : (totals.euros | number:'1.6-6')}} euros 
+  </li>
+  <li>
+    {{isRounded ? (totals.dollars | number:'1.2-2') : (totals.dollars | number:'1.6-6')}} US dollars 
+  </li>
+  <li *ngIf="!isError && totals.pounds">
+    {{isRounded ? (totals.pounds | number:'1.2-2') : (totals.pounds | number:'1.6-6')}} pounds 
+  </li>
+  <li *ngIf="!isError && totals.yens">
+    {{isRounded ? (totals.yens | number:'1.2-2') : (totals.yens | number:'1.6-6')}} yens 
+  </li>
 </ul>
 
 <div>Total price as json: </div>

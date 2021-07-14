@@ -39,15 +39,14 @@ export class TotalPriceComponent implements OnInit, OnDestroy {
     this.errorMessages = [];
   }
 
-  retryCalculation(){
+  retryCalculation() {
     this._subscriptions.forEach(x => x.unsubscribe());
     this.isError = false;
     this.errorMessages = [];
     this.calculateTotals();
-
   }
 
-  private calculateTotals(){
+  private calculateTotals() {
     let cartSum = this.cart.reduce((sum, current) => sum + current.price, 0);
     this.totals.dollars = cartSum;
 
@@ -61,14 +60,16 @@ export class TotalPriceComponent implements OnInit, OnDestroy {
             next: result => {
               this.totals[x] = result * cartSum;
             },
-            error: (error: HttpErrorResponse) =>
-              {
-                this.errorMessages.push(
-                `The exchange rate service doesn't work correctly. Please try later. Rate ID is ` + rateId + '. '+
-                error.error.error);
-                this.isError = true;
-                this.totals[x] = null;
-              }
+            error: (error: HttpErrorResponse) => {
+              this.errorMessages.push(
+                `The exchange rate service doesn't work correctly. Please try later. Rate ID is ` +
+                  rateId +
+                  '. ' +
+                  error.error.error
+              );
+              this.isError = true;
+              this.totals[x] = null;
+            }
           })
         );
       });

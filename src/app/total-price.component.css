@@ -1,11 +1,10 @@
-ul.totals-list li{
-  list-style-type: "\1F4B8";
+ul.totals-list li {
+  list-style-type: '\1F4B8';
 }
 
-textarea{
+textarea {
   width: 240px;
   height: 115px;
-  
 }
 
 .error-messages {

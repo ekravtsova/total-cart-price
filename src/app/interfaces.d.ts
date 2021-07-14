@@ -1,3 +1,3 @@
-export interface IPrice{
-  price: number
+export interface IPrice {
+  price: number;
 }

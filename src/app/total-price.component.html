@@ -1,0 +1,21 @@
+<input type="checkbox" id="isRounded" [(ngModel)]="isRounded"/>
+<label for="isRounded">display rounded values</label>
+
+<div>Total price:</div>
+<ul class="totals-list">
+  <li *ngIf="!isError">{{isRounded ? (totals.rubles | number:'1.2-2') : (totals.rubles | number:'1.6-6')}} rubles </li>
+  <li *ngIf="!isError">{{isRounded ? (totals.euros | number:'1.2-2') : (totals.euros | number:'1.6-6')}} euros </li>
+  <li>{{isRounded ? (totals.dollars | number:'1.2-2') : (totals.dollars | number:'1.6-6')}} US dollars </li>
+  <li *ngIf="!isError">{{isRounded ? (totals.pounds | number:'1.2-2') : (totals.pounds | number:'1.6-6')}} pounds </li>
+  <li *ngIf="!isError">{{isRounded ? (totals.yens | number:'1.2-2') : (totals.yens | number:'1.6-6')}} yens </li>
+</ul>
+
+<div>Total price as json: </div>
+<textarea disabled="disabled">{{totals | json}}</textarea>
+
+<div class="error-messages" *ngIf="isError">
+  <button (click)="retryCalculation()">Retry </button>
+  <ul>
+    <li *ngFor="let error of errorMessages"> {{error}}</li>
+  </ul>
+</div>

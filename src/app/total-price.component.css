@@ -1,0 +1,13 @@
+ul.totals-list li{
+  list-style-type: "\1F4B8";
+}
+
+textarea{
+  width: 240px;
+  height: 115px;
+  
+}
+
+.error-messages {
+  color: red;
+}

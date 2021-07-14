@@ -1,0 +1,7 @@
+<fieldset>
+  <legend> Cart </legend>
+<ol>
+  <li *ngFor="let item of selectedCart">{{item.price}} US dollars</li>
+</ol>
+</fieldset>
+<total-price [cart]="selectedCart"></total-price>
